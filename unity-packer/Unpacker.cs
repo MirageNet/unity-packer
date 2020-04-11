@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using ICSharpCode.SharpZipLib.GZip;
 using ICSharpCode.SharpZipLib.Tar;
@@ -55,16 +54,10 @@ namespace UnityPacker
 
         private static void Decompress(string inputFile, string tempPath)
         {
-            using (FileStream stream = new FileStream(inputFile, FileMode.Open))
-            {
-                using (GZipInputStream zipStream = new GZipInputStream(stream))
-                {
-                    using (TarArchive archive = TarArchive.CreateInputTarArchive(zipStream))
-                    {
-                        archive.ExtractContents(tempPath);
-                    }
-                }
-            }
+            using FileStream stream = new FileStream(inputFile, FileMode.Open);
+            using GZipInputStream zipStream = new GZipInputStream(stream);
+            using TarArchive archive = TarArchive.CreateInputTarArchive(zipStream);
+            archive.ExtractContents(tempPath);
         }
     }
 }
