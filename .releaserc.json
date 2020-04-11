@@ -17,7 +17,7 @@
         ["@semantic-release/exec", {
             "shell" : true,
             "prepareCmd": "dotnet pack",
-            "publishCmd": "dotnet nuget push unity-packer/nupkg/unity-packer.${nextRelease.version}.nupkg -k $NUGET_APIKEY -s https://api.nuget.org/v3/index.json"
+            "publishCmd": "dotnet nuget push unity-packer/nupkg/unity-packer.${nextRelease.version}.nupkg -k %NUGET_APIKEY% -s https://api.nuget.org/v3/index.json"
         }]
     ]
 }
