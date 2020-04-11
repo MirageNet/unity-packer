@@ -1,3 +1,10 @@
+## [2.1.3](https://github.com/MirrorNG/unity-packer/compare/v2.1.2...v2.1.3) (2020-04-11)
+
+
+### Bug Fixes
+
+* dotnet tool packaging ([47974e1](https://github.com/MirrorNG/unity-packer/commit/47974e1613be03679b18d4e2817503ff3f547d5b))
+
 ## [2.1.2](https://github.com/MirrorNG/unity-packer/compare/v2.1.1...v2.1.2) (2020-04-11)
 
 
