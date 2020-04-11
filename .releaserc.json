@@ -10,12 +10,12 @@
                 {"path": "unity-packer/nupkg/unity-packer.*.nupkg", "name": "unity-packer.${nextRelease.gitTag}.nupkg", "label": "unity-packer.${nextRelease.gitTag}.nupkg"}
             ]
         }],
-        ["@semantic-release/exec", {
-            "prepareCmd": "dotnet pack"
-          }],
         "@semantic-release/changelog",
         ["@semantic-release/git", {
             "assets": ["CHANGELOG.md", "**/*.csproj"]
+        }],
+        ["@semantic-release/exec", {
+            "prepareCmd": "dotnet pack"
         }]
     ]
 }
