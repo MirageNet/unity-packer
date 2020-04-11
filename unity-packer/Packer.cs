@@ -92,10 +92,8 @@ namespace UnityPacker
 
             FileInfo metaFile = new FileInfo(metaPath);
 
-            using (FileStream metaFileStream = metaFile.Open(FileMode.Open))
-            {
-                metaFileStream.SetLength(metaFile.Length - 3 - Environment.NewLine.Length);
-            }
+            using FileStream metaFileStream = metaFile.Open(FileMode.Open);
+            metaFileStream.SetLength(metaFile.Length - 3 - Environment.NewLine.Length);
         }
 
         private static string GetGuid(YamlDocument meta)
@@ -141,28 +139,20 @@ namespace UnityPacker
             if (!File.Exists(metaPath))
                 return null;
 
-            using (StreamReader reader = new StreamReader(metaPath))
-            {
-                var yaml = new YamlStream();
-                yaml.Load(reader);
+            using StreamReader reader = new StreamReader(metaPath);
+            var yaml = new YamlStream();
+            yaml.Load(reader);
 
-                return yaml.Documents[0];
-            }
+            return yaml.Documents[0];
         }
 
         private static void Compress(string outputFile, string tempPath)
         {
-            using (FileStream stream = new FileStream(outputFile, FileMode.CreateNew))
-            {
-                using (GZipOutputStream zipStream = new GZipOutputStream(stream))
-                {
-                    using (TarArchive archive = TarArchive.CreateOutputTarArchive(zipStream))
-                    {
-                        archive.RootPath = tempPath;
-                        archive.AddFilesRecursive(tempPath);
-                    }
-                }
-            }
+            using FileStream stream = new FileStream(outputFile, FileMode.CreateNew);
+            using GZipOutputStream zipStream = new GZipOutputStream(stream);
+            using TarArchive archive = TarArchive.CreateOutputTarArchive(zipStream);
+            archive.RootPath = tempPath;
+            archive.AddFilesRecursive(tempPath);
         }
     }
 }
