@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UnityPackager\UnityPackager.csproj" />
+    <ProjectReference Include="..\unity-packer\unity-packer.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="sample\" />

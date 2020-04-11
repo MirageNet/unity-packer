@@ -6,7 +6,7 @@
     <Description>Generates a unity package without requiring unity editor</Description>
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <PackAsTool>true</PackAsTool>
-    <ToolCommandName>UnityPackager</ToolCommandName>
+    <ToolCommandName>unity-packer</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
   </PropertyGroup>
 
