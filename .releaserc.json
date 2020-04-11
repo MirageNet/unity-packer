@@ -3,7 +3,7 @@
         "@semantic-release/commit-analyzer", 
         "@semantic-release/release-notes-generator", 
         ["semantic-release-plugin-csproj", {
-            "projectFile": "unity-packer/.csproj"
+            "projectFile": "unity-packer/unity-packer.csproj"
         }],
         ["@semantic-release/github", {
             "assets": [
