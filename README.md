@@ -42,5 +42,5 @@ unity-packer unpack <unity package> <Project Folder>
 For example, the following command will unpack all the files from `Input.unitypackage` into `Projectfolder`
 
 ```sh
-./unity-packer unpack Input.unitypackage ProjectFolder
+unity-packer unpack Input.unitypackage ProjectFolder
 ```
