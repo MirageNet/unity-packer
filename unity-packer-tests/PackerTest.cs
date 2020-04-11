@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
-using UnityPacker;
 using Xunit;
 
 namespace UnityPacker.Tests
@@ -73,13 +72,9 @@ namespace UnityPacker.Tests
 
         private static byte[] GetMD5(string file)
         {
-            using (MD5 md5 = MD5.Create())
-            {
-                using (var stream = File.OpenRead(file))
-                {
-                    return md5.ComputeHash(stream);
-                }
-            }
+            using MD5 md5 = MD5.Create();
+            using var stream = File.OpenRead(file);
+            return md5.ComputeHash(stream);
         }
     }
 }
