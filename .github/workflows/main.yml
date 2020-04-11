@@ -1,0 +1,14 @@
+name: Main
+
+on:
+    push:
+        paths-ignore:
+
+jobs:
+
+    ci:
+        runs-on: windows-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            
