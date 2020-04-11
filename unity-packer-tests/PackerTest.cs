@@ -12,7 +12,7 @@ namespace UnityPacker.Tests
         [Fact]
         public void PackTest()
         {
-            Dictionary<string, string> fileMap = new Dictionary<string, string>
+            var fileMap = new Dictionary<string, string>
             {
                 ["sample/sample1.txt"] = "sample1.txt",
                 ["sample/childfolder/sample2.txt"] = "sample2.txt",
@@ -44,7 +44,7 @@ namespace UnityPacker.Tests
         [Fact]
         public void RecursivePackTest()
         {
-            Dictionary<string, string> fileMap = new Dictionary<string, string>
+            var fileMap = new Dictionary<string, string>
             {
                 ["sample"] = "Assets/UnityPacker",
             };
@@ -72,8 +72,8 @@ namespace UnityPacker.Tests
 
         private static byte[] GetMD5(string file)
         {
-            using MD5 md5 = MD5.Create();
-            using var stream = File.OpenRead(file);
+            using var md5 = MD5.Create();
+            using FileStream stream = File.OpenRead(file);
             return md5.ComputeHash(stream);
         }
     }

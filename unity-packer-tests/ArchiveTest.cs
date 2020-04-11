@@ -10,10 +10,10 @@ namespace UnityPacker.Tests
         // check that the tar contains the expected files
         private static void VerifyTar(HashSet<string> expected, MemoryStream outstream)
         {
-            MemoryStream instream = new MemoryStream(outstream.ToArray(), false);
+            var instream = new MemoryStream(outstream.ToArray(), false);
 
-            using TarArchive archive = TarArchive.CreateInputTarArchive(instream);
-            HashSet<string> entries = new HashSet<string>();
+            using var archive = TarArchive.CreateInputTarArchive(instream);
+            var entries = new HashSet<string>();
 
             archive.ProgressMessageEvent += (ar, entry, message) =>
             {
@@ -29,14 +29,14 @@ namespace UnityPacker.Tests
         [Fact]
         public void TestRecursiveAdd()
         {
-            MemoryStream outstream = new MemoryStream();
+            var outstream = new MemoryStream();
 
-            using (TarArchive archive = TarArchive.CreateOutputTarArchive(outstream))
+            using (var archive = TarArchive.CreateOutputTarArchive(outstream))
             {
                 archive.AddFilesRecursive("sample");
             }
 
-            HashSet<string> expected = new HashSet<string>
+            var expected = new HashSet<string>
             {
                 "sample/sample1.txt",
                 "sample/childfolder/sample2.txt",
@@ -51,15 +51,15 @@ namespace UnityPacker.Tests
         [Fact]
         public void TestRecursiveAddStripping()
         {
-            MemoryStream outstream = new MemoryStream();
+            var outstream = new MemoryStream();
 
-            using (TarArchive archive = TarArchive.CreateOutputTarArchive(outstream))
+            using (var archive = TarArchive.CreateOutputTarArchive(outstream))
             {
                 archive.RootPath = "sample";
                 archive.AddFilesRecursive("sample");
             }
 
-            HashSet<string> expected = new HashSet<string>
+            var expected = new HashSet<string>
             {
                 "sample1.txt",
                 "childfolder/sample2.txt" ,
