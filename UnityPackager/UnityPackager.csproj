@@ -2,9 +2,12 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>netcoreapp2.1;netstandard2.0</TargetFrameworks>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <Description>Generates a unity package without requiring unity editor</Description>
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>UnityPackager</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
