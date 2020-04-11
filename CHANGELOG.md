@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/MirrorNG/unity-packer/compare/v2.1.0...v2.1.1) (2020-04-11)
+
+
+### Bug Fixes
+
+* push to nuget ([2ce8335](https://github.com/MirrorNG/unity-packer/commit/2ce8335af5e0739d00f70ecc93a7ddee96aa0a96))
+
 # [2.1.0](https://github.com/MirrorNG/unity-packer/compare/v2.0.0...v2.1.0) (2020-04-11)
 
 
