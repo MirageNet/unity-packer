@@ -2,7 +2,7 @@
 [![Main](https://github.com/MirrorNG/unity-packer/workflows/Main/badge.svg)](https://github.com/MirrorNG/unity-packer/actions?query=workflow%3AMain)
 
 # unity-packer
-unity-packer is a simple dotnet utility to pack and unpack Unity's own UnityPackage file format (usually associated with the .unitypackage extension). It's very useful for CI servers.
+unity-packer is a simple dotnet tool to pack and unpack Unity's own UnityPackage file format (usually associated with the .unitypackage extension). It's very useful for CI servers.
 
 The UnityPackage format is not open and everything this utility does is based on reverse engineering the fairly simplistic file format. Thus it might not fit all specifications, as they are not public.
 
