@@ -5,11 +5,11 @@ using ICSharpCode.SharpZipLib.GZip;
 using ICSharpCode.SharpZipLib.Tar;
 using YamlDotNet.RepresentationModel;
 
-namespace UnityPackager
+namespace UnityPacker
 {
     public static class Packer
     {
-        public static void Pack(IDictionary<string,string> files, string outputFile)
+        public static void Pack(IDictionary<string, string> files, string outputFile)
         {
             string randomFile = Path.GetRandomFileName();
 
@@ -42,7 +42,7 @@ namespace UnityPackager
         private static void AddFolder(string tempPath, string folder, string destination)
         {
             string[] folders = Directory.GetDirectories(folder, "*", SearchOption.AllDirectories);
-            string[] files = Directory.GetFiles(folder, "*", SearchOption.AllDirectories );
+            string[] files = Directory.GetFiles(folder, "*", SearchOption.AllDirectories);
 
             List<string> entries = new List<string>(folders);
             entries.AddRange(files);
@@ -70,7 +70,7 @@ namespace UnityPackager
 
             Directory.CreateDirectory(Path.Combine(tempPath, guid));
 
-            if (File.Exists(fromFile))            
+            if (File.Exists(fromFile))
             {
                 string assetPath = Path.Combine(tempPath, guid, "asset");
                 File.Copy(fromFile, assetPath);

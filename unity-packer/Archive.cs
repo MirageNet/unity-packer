@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using ICSharpCode.SharpZipLib.Tar;
 
-namespace UnityPackager
+namespace UnityPacker
 {
     public static class Archive
     {

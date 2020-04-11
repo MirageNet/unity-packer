@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using ICSharpCode.SharpZipLib.Tar;
-using UnityPackager;
+using UnityPacker;
 using Xunit;
 
 namespace Tests

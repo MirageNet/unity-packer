@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
-using UnityPackager;
+using UnityPacker;
 using Xunit;
 
-namespace Tests
+namespace UnityPacker.Tests
 {
     public class PackerTest
     {

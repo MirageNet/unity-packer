@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace UnityPackager
+namespace UnityPacker
 {
     internal class Program
     {
@@ -80,11 +80,11 @@ namespace UnityPackager
         private static void PrintUsage()
         {
             Console.WriteLine("Usage:");
-            Console.WriteLine("\t" + "UnityPackager pack <output> [(<input-file> <target-path>)]...");
-            Console.WriteLine("\t" + "UnityPackager unpack <input-file> <output-folder>");
+            Console.WriteLine("\t" + "unity-packer pack <output> [(<input-file> <target-path>)]...");
+            Console.WriteLine("\t" + "unity-packer unpack <input-file> <output-folder>");
             Console.WriteLine("Example:");
-            Console.WriteLine("\t" + "UnityPackager pack MyPackage.unitypackage MyFile.cs Assets/MyFile.cs");
-            Console.WriteLine("\t" + "UnityPackager unpack MyPackage.unitypackage MyProjectFolder");
+            Console.WriteLine("\t" + "unity-packer pack MyPackage.unitypackage MyFile.cs Assets/MyFile.cs");
+            Console.WriteLine("\t" + "unity-packer unpack MyPackage.unitypackage MyProjectFolder");
         }
     }
 }

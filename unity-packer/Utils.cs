@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace UnityPackager
+namespace UnityPacker
 {
     public static class Utils
     {
