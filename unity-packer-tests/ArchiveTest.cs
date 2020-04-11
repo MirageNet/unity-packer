@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using ICSharpCode.SharpZipLib.Tar;
@@ -61,9 +61,9 @@ namespace UnityPacker.Tests
                 archive.AddFilesRecursive("sample");
             }
 
-            HashSet<string> expected = new HashSet<string> 
-            { 
-                "sample1.txt", 
+            HashSet<string> expected = new HashSet<string>
+            {
+                "sample1.txt",
                 "childfolder/sample2.txt" ,
                 "childfolder/sample2.txt.meta" ,
                 "box.png"

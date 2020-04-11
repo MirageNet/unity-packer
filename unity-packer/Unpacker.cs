@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using ICSharpCode.SharpZipLib.GZip;
 using ICSharpCode.SharpZipLib.Tar;

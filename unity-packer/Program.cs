@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -28,7 +28,7 @@ namespace UnityPacker
                     Environment.Exit(1);
                     return;
                 }
-            
+
                 string outputFile = args[1];
 
                 if (!Path.IsPathRooted(outputFile))
@@ -44,12 +44,12 @@ namespace UnityPacker
                         fromPath = Path.GetFullPath(fromPath);
 
                     string toPath = args[i + 1];
-                
+
                     fileMap.Add(fromPath, toPath);
                 }
 
                 Packer.Pack(fileMap, outputFile);
-            } 
+            }
             else if (args[0].ToLower() == "unpack")
             {
                 if (args.Length != 3)
@@ -58,17 +58,17 @@ namespace UnityPacker
                     Environment.Exit(1);
                     return;
                 }
-                
+
                 string inputFile = args[1];
 
                 if (!Path.IsPathRooted(inputFile))
                     inputFile = Path.GetFullPath(inputFile);
-                
+
                 string outputFolder = args[2];
 
                 if (!Path.IsPathRooted(outputFolder))
                     outputFolder = Path.GetFullPath(outputFolder);
-                
+
                 Unpacker.Unpack(inputFile, outputFolder);
             }
             else

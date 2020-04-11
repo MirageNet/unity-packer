@@ -9,7 +9,7 @@ namespace UnityPacker.Tests
 {
     public class PackerTest
     {
-       
+
         [Fact]
         public void PackTest()
         {
