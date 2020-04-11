@@ -34,7 +34,7 @@ namespace UnityPacker
                 if (!Path.IsPathRooted(outputFile))
                     outputFile = Path.GetFullPath(outputFile);
 
-                Dictionary<string, string> fileMap = new Dictionary<string, string>();
+                var fileMap = new Dictionary<string, string>();
 
                 for (int i = 2; i < args.Length; i += 2)
                 {

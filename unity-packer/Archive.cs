@@ -16,7 +16,7 @@ namespace UnityPacker
 
             foreach (string filename in files)
             {
-                TarEntry entry = TarEntry.CreateEntryFromFile(filename);
+                var entry = TarEntry.CreateEntryFromFile(filename);
                 if (archive.RootPath != null && Path.IsPathRooted(filename))
                 {
                     entry.Name = Path.GetRelativePath(archive.RootPath, filename);

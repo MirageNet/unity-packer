@@ -54,9 +54,9 @@ namespace UnityPacker
 
         private static void Decompress(string inputFile, string tempPath)
         {
-            using FileStream stream = new FileStream(inputFile, FileMode.Open);
-            using GZipInputStream zipStream = new GZipInputStream(stream);
-            using TarArchive archive = TarArchive.CreateInputTarArchive(zipStream);
+            using var stream = new FileStream(inputFile, FileMode.Open);
+            using var zipStream = new GZipInputStream(stream);
+            using var archive = TarArchive.CreateInputTarArchive(zipStream);
             archive.ExtractContents(tempPath);
         }
     }

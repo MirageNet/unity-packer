@@ -44,7 +44,7 @@ namespace UnityPacker
             string[] folders = Directory.GetDirectories(folder, "*", SearchOption.AllDirectories);
             string[] files = Directory.GetFiles(folder, "*", SearchOption.AllDirectories);
 
-            List<string> entries = new List<string>(folders);
+            var entries = new List<string>(folders);
             entries.AddRange(files);
 
             foreach (string filename in entries)
@@ -85,12 +85,12 @@ namespace UnityPacker
 
         private static void SaveMeta(string metaPath, YamlDocument meta)
         {
-            using (StreamWriter writer = new StreamWriter(metaPath))
+            using (var writer = new StreamWriter(metaPath))
             {
                 new YamlStream(meta).Save(writer, false);
             }
 
-            FileInfo metaFile = new FileInfo(metaPath);
+            var metaFile = new FileInfo(metaPath);
 
             using FileStream metaFileStream = metaFile.Open(FileMode.Open);
             metaFileStream.SetLength(metaFile.Length - 3 - Environment.NewLine.Length);
@@ -98,11 +98,11 @@ namespace UnityPacker
 
         private static string GetGuid(YamlDocument meta)
         {
-            YamlMappingNode mapping = (YamlMappingNode)meta.RootNode;
+            var mapping = (YamlMappingNode)meta.RootNode;
 
-            YamlScalarNode key = new YamlScalarNode("guid");
+            var key = new YamlScalarNode("guid");
 
-            YamlScalarNode value = (YamlScalarNode)mapping[key];
+            var value = (YamlScalarNode)mapping[key];
             return value.Value;
         }
 
@@ -139,7 +139,7 @@ namespace UnityPacker
             if (!File.Exists(metaPath))
                 return null;
 
-            using StreamReader reader = new StreamReader(metaPath);
+            using var reader = new StreamReader(metaPath);
             var yaml = new YamlStream();
             yaml.Load(reader);
 
@@ -148,9 +148,9 @@ namespace UnityPacker
 
         private static void Compress(string outputFile, string tempPath)
         {
-            using FileStream stream = new FileStream(outputFile, FileMode.CreateNew);
-            using GZipOutputStream zipStream = new GZipOutputStream(stream);
-            using TarArchive archive = TarArchive.CreateOutputTarArchive(zipStream);
+            using var stream = new FileStream(outputFile, FileMode.CreateNew);
+            using var zipStream = new GZipOutputStream(stream);
+            using var archive = TarArchive.CreateOutputTarArchive(zipStream);
             archive.RootPath = tempPath;
             archive.AddFilesRecursive(tempPath);
         }
