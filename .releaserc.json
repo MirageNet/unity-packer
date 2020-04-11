@@ -15,7 +15,9 @@
             "assets": ["CHANGELOG.md", "**/*.csproj"]
         }],
         ["@semantic-release/exec", {
-            "prepareCmd": "dotnet pack"
+            "shell" : true,
+            "prepareCmd": "dotnet pack",
+            "publish": "dotnet nuget push -k $NUGET_APIKEY"
         }]
     ]
 }

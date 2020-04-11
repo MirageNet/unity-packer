@@ -34,3 +34,5 @@ jobs:
                 branch: master
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+                NUGET_APIKEY: ${{ secretes.NUGET_APIKEY }}
+                
