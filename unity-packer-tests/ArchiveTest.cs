@@ -5,28 +5,26 @@ using ICSharpCode.SharpZipLib.Tar;
 using UnityPacker;
 using Xunit;
 
-namespace Tests
+namespace UnityPacker.Tests
 {
     public class FoldersTest
     {
         // check that the tar contains the expected files
-        private static void VerifyTar(HashSet<String> expected, MemoryStream outstream)
+        private static void VerifyTar(HashSet<string> expected, MemoryStream outstream)
         {
             MemoryStream instream = new MemoryStream(outstream.ToArray(), false);
 
-            using (TarArchive archive = TarArchive.CreateInputTarArchive(instream))
+            using TarArchive archive = TarArchive.CreateInputTarArchive(instream);
+            HashSet<string> entries = new HashSet<string>();
+
+            archive.ProgressMessageEvent += (ar, entry, message) =>
             {
-                HashSet<string> entries = new HashSet<string>();
+                entries.Add(entry.Name);
+            };
 
-                archive.ProgressMessageEvent += (ar, entry, message) =>
-                {
-                    entries.Add(entry.Name);
-                };
+            archive.ListContents();
 
-                archive.ListContents();
-
-                Assert.Equal(expected, entries);
-            }
+            Assert.Equal(expected, entries);
         }
 
 
