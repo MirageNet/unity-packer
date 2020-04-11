@@ -4,10 +4,13 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Description>Generates a unity package without requiring unity editor</Description>
-    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>unity-packer</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
+    <PackageId>unity-packer</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Paul Pacheco</Authors>
+    <Company>MirrorNG</Company>
   </PropertyGroup>
 
   <ItemGroup>

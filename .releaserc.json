@@ -2,10 +2,20 @@
     "plugins": [
         "@semantic-release/commit-analyzer", 
         "@semantic-release/release-notes-generator", 
+        ["semantic-release-plugin-csproj", {
+            "projectFile": "unity-packer/.csproj"
+        }],
         ["@semantic-release/github", {
             "assets": [
-                {"path": "UnityPackager.zip", "name": "UnityPackager.zip", "label": "UnityPackager"}
+                {"path": "unity-packer/nupkg/unity-packer.*.nupkg", "name": "unity-packer.${nextRelease.gitTag}.nupkg", "label": "unity-packer.${nextRelease.gitTag}.nupkg"}
             ]
+        }],
+        ["@semantic-release/exec", {
+            "prepareCmd": "dotnet pack"
+          }],
+        "@semantic-release/changelog",
+        ["@semantic-release/git", {
+            "assets": ["CHANGELOG.md", "**/*.csproj"]
         }]
     ]
 }

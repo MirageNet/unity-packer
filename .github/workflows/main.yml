@@ -22,5 +22,14 @@ jobs:
             - name: Test
               run: dotnet test
 
-            - name: Pack
-              run: dotnet pack
+            - name: Release
+              uses: cycjimmy/semantic-release-action@v2
+              with:
+                extra_plugins: |
+                  @semantic-release-plugin-csproj
+                  @semantic-release/exec
+                  @semantic-release/changelog
+                  @semantic-release/git
+                branch: master
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
